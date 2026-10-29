@@ -13,12 +13,13 @@ img/             Logo y fotos (vacía por ahora)
 ## Datos pendientes
 
 Todos los huecos están marcados con la palabra **PENDIENTE**. Para encontrarlos, busque `PENDIENTE` en `index.html` y `js/main.js`.
-Los que se ven en la página aparecen con fondo amarillo y borde punteado.
+Los que se ven en la página aparecen con fondo amarillo.
 
 ## Cómo cambiar…
 
 ### Textos
-Están todos en `index.html`, ordenados por sección (`INICIO`, `CIFRAS`, `LA EMPRESA`, `SERVICIOS`, `INSTALACIONES`, `CONTACTO`, `PIE`).
+Están todos en `index.html`, ordenados por sección (`INICIO`, `CIFRAS`, `LA EMPRESA`, `SERVICIOS`, `PARA QUIÉN TRABAJAMOS`, `INSTALACIONES`, `CONTACTO`).
+La cifra grande del inicio (`10.050 m²`) está en `<p class="monument">`. El reloj del inicio muestra la hora de Buenos Aires y lo arma `js/main.js`.
 Edite el texto entre las etiquetas sin tocar lo que está entre `< >`.
 
 ### Teléfono, email y dirección
@@ -40,27 +41,28 @@ Mientras `FORM_ENDPOINT` esté vacío, el formulario no envía nada y muestra un
 
 ### Logo
 1. Guarde el logo en `img/logo.svg` (o `.png`).
-2. En `index.html`, dentro de `<a class="brand">`, reemplace el bloque `<span class="brand-text">…</span>` por:
-   `<img src="img/logo.svg" alt="Fiscales San Martín S.A." width="180" height="48">`
-3. En el pie, reemplace `<div class="logo-slot">…</div>` por la misma imagen (en versión clara si el fondo es oscuro).
+2. En `index.html`, reemplace el texto de `<a class="wordmark">` por la versión clara del logo (la barra es azul marino):
+   `<img src="img/logo-claro.svg" alt="Fiscales San Martín S.A." width="180" height="40">`
+3. En el pie, reemplace el bloque «Logo» con el hueco pendiente por la versión oscura del logo.
 
 ### Fotos del depósito
 1. Guarde las fotos en `img/` (unos 1600 px de ancho, comprimidas en JPG o WebP).
-2. En la sección `INSTALACIONES` de `index.html`, reemplace cada `<figure class="photo-slot">…</figure>` por:
+2. En la sección `INSTALACIONES` de `index.html`, reemplace cada `<figure class="tile tile-photo">…</figure>` (las teselas grises «Foto del depósito – pendiente») por:
    ```html
-   <figure class="photo"><img src="img/deposito-1.jpg" alt="Qué se ve en la foto" loading="lazy" width="1600" height="1200"></figure>
+   <figure class="tile tile-img" data-tile><img src="img/deposito-1.jpg" alt="Qué se ve en la foto" loading="lazy" width="1200" height="1200"></figure>
    ```
+   Las teselas son cuadradas: conviene recortar las fotos en cuadrado.
    `loading="lazy"` hace que las fotos se carguen solo al llegar a la galería.
 
 ### Foto de fondo del inicio
-En `css/styles.css`, en la regla `.hero`, cambie `background` por:
+El inicio está pensado sin foto: el protagonista es la cifra de 10.050 m². Si más adelante hay una foto del predio que lo merezca, en `css/styles.css`, regla `.hero`, cambie `background` por:
 ```css
-background: linear-gradient(rgba(15, 42, 74, .82), rgba(15, 42, 74, .82)), url("../img/hero.jpg") center / cover;
+background: linear-gradient(rgba(15, 42, 74, .85), rgba(15, 42, 74, .85)), url("../img/hero.jpg") center / cover;
 ```
-La capa azul semitransparente mantiene el texto legible.
 
-### Colores
-Al principio de `css/styles.css`, en `:root`. Si la marca tiene colores propios, cambie `--navy`, `--blue` y `--accent`.
+### Colores y tamaños
+Al principio de `css/styles.css`, en `:root`. Si la marca tiene colores propios, cambie `--navy`, `--blue`, `--monument` y `--accent`.
+La web usa una sola familia (Inter) y pocos tamaños (`--s-sm`, `--s-body`, `--s-lead`, `--s-mid`, `--s-head`, `--s-display`).
 
 ## Notas
 - Los íconos son de [Lucide](https://lucide.dev) (licencia ISC) y están incluidos dentro de `index.html`.

@@ -41,7 +41,7 @@
 </head>
 <body>
 
-<!-- Iconos: Lucide (https://lucide.dev, licencia ISC), incluidos aquí para que la web funcione sin conexión a otras librerías. -->
+<!-- Iconos: Lucide (https://lucide.dev, licencia ISC), incluidos aquí para que la web funcione sin depender de otras librerías. -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12"/><path d="M6 14h12"/><rect width="12" height="12" x="6" y="10"/></symbol>
   <symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
@@ -80,315 +80,284 @@
 
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<header class="site-header" id="top">
-  <div class="container header-inner">
-    <a class="brand" href="#inicio" aria-label="Fiscales San Martín S.A., ir al inicio">
-      <!-- PENDIENTE: reemplazar por el logo en alta resolución (img/logo.svg o img/logo.png). Ver README.md. -->
-      <span class="brand-text"><strong>Fiscales San Martín</strong><small>Depósito fiscal general</small></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
-      <svg class="i i-open"><use href="#i-menu"/></svg><svg class="i i-close"><use href="#i-x"/></svg>
+<header class="bar">
+  <div class="bar-in">
+    <!-- PENDIENTE: reemplazar el nombre por el logo en alta resolución (img/logo.svg). Ver README.md. -->
+    <a class="wordmark" href="#inicio">Fiscales San Martín</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal">
+      <svg class="i" aria-hidden="true"><use href="#i-menu"/></svg><span>Menú</span>
     </button>
-    <nav class="site-nav" id="menu-principal" aria-label="Menú principal">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#empresa">La empresa</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#instalaciones">Instalaciones</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+    <nav class="nav" id="menu-principal" aria-label="Menú principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#empresa">La empresa</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#instalaciones">Instalaciones</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </div>
 </header>
 
 <main id="contenido">
 
-  <!-- ============ INICIO ============ -->
-  <!-- PENDIENTE: cuando haya una foto real del depósito, ponerla como fondo del hero (ver README.md). -->
-  <section class="hero" id="inicio">
-    <div class="container hero-inner">
-      <p class="eyebrow">Depósito Fiscal General habilitado por la Aduana</p>
-      <h1>Depósito fiscal y logística para comercio exterior</h1>
-      <p class="hero-sub">Almacenamos, controlamos y movemos su mercadería con trato directo y operación las 24 horas, en General San Martín, Buenos Aires.</p>
-      <div class="hero-actions">
-        <a class="btn btn-accent" href="#contacto">Solicitar información <svg class="i"><use href="#i-arrow-right"/></svg></a>
+  <!-- INICIO · PENDIENTE: cuando haya una foto real del depósito, puede ir de fondo (ver README.md). -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-text">
+      <h1 class="hero-title lines" id="hero-title">
+        <span class="line"><span data-line style="--i:0">Depósito fiscal y logística</span></span>
+        <span class="line"><span data-line style="--i:1">para comercio exterior</span></span>
+      </h1>
+      <p class="hero-sub" data-load style="--d:380ms">Almacenamos, controlamos y movemos su mercadería con trato directo y operación las 24&nbsp;horas, en General San Martín, Buenos Aires.</p>
+      <div class="hero-actions" data-load style="--d:460ms">
+        <a class="btn btn-accent" href="#contacto">Solicitar información</a>
         <!-- PENDIENTE: confirmar si el WhatsApp es móvil o fijo con WhatsApp Business. El enlace se arma en js/main.js. -->
-        <a class="btn btn-outline-light" data-whatsapp href="https://wa.me/5491152637450?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20dep%C3%B3sito%20fiscal." target="_blank" rel="noopener"><svg class="i"><use href="#i-message-circle"/></svg> Escribir por WhatsApp</a>
+        <a class="btn btn-ghost" data-whatsapp href="https://wa.me/5491152637450?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20dep%C3%B3sito%20fiscal." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-message-circle"/></svg>Escribir por WhatsApp</a>
       </div>
-      <p class="hero-loc"><svg class="i"><use href="#i-map-pin"/></svg> Villa Maipú, partido de General San Martín, provincia de Buenos Aires</p>
+      <p class="clock" data-load style="--d:540ms" aria-live="off">
+        <svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>
+        <span id="clock-text">El depósito opera las 24 horas, los 365 días del año.</span>
+      </p>
+    </div>
+    <p class="monument" aria-hidden="true"><span>10.050&nbsp;m²</span></p>
+  </section>
+
+  <!-- CIFRAS -->
+  <section class="figures" aria-labelledby="cifras-title">
+    <h2 class="sr-only" id="cifras-title">El predio en cifras</h2>
+    <p class="figures-text" data-reveal>
+      Un predio de <b><span data-count="10050" data-format="thousands">10.050</span>&nbsp;m²</b> en zona primaria aduanera, que opera <b><span data-count="24">24</span>&nbsp;horas</b> los <b><span data-count="365">365</span>&nbsp;días</b> del año, con <b>oficinas de Aduana</b>, <b>balanza fiscal</b> y <b>vigilancia permanente</b> dentro del mismo predio.
+    </p>
+  </section>
+
+  <!-- LA EMPRESA -->
+  <section class="about" id="empresa" aria-labelledby="empresa-title">
+    <div class="about-row">
+      <dl class="facts" data-reveal>
+        <div><dt>Razón social</dt><dd>Fiscales San Martín S.A.</dd></div>
+        <div><dt>CUIT</dt><dd>30-71753882-6</dd></div>
+        <div><dt>Ubicación</dt><dd>Villa Maipú, General San Martín</dd></div>
+        <div><dt>Horario</dt><dd>24 horas, 365 días</dd></div>
+      </dl>
+      <div class="about-body">
+        <h2 id="empresa-title" data-reveal>La empresa</h2>
+        <p data-reveal>Fiscales San Martín S.A. es un depósito fiscal general ubicado en Villa Maipú, partido de General San Martín. Trabajamos con importadores, exportadores, despachantes de aduana y operadores logísticos.</p>
+        <p data-reveal>La empresa se constituyó en 2022. En 2023 el proyecto obtuvo la prefactibilidad y en 2024 la Aduana habilitó el predio como Depósito Fiscal General.</p>
+        <p data-reveal>Nuestra forma de trabajar es simple: trato directo, respuestas rápidas y acompañamiento en cada paso logístico y aduanero.</p>
+      </div>
+    </div>
+    <div class="about-row about-record">
+      <h3 class="record-word" data-reveal>Historia</h3>
+      <ol class="timeline" data-reveal>
+        <li><span class="tl-year">2022</span><span class="tl-text"><b>Constitución</b> de la sociedad</span></li>
+        <li><span class="tl-year">2023</span><span class="tl-text"><b>Prefactibilidad</b> del proyecto aprobada</span></li>
+        <li><span class="tl-year">2024</span><span class="tl-text"><b>Habilitación</b> como Depósito Fiscal General, publicada en el Boletín Oficial en agosto</span></li>
+        <li><span class="tl-year">—</span><span class="tl-text"><b>Inicio de operaciones</b> <span class="pendiente">[PENDIENTE: año de inicio de operaciones]</span></span></li>
+      </ol>
     </div>
   </section>
 
-  <!-- ============ CIFRAS ============ -->
-  <section class="stats" aria-label="Datos principales">
-    <div class="container stats-grid">
-      <div class="stat reveal">
-        <p class="stat-value"><span data-count="10050" data-format="thousands">10.050</span><span class="stat-unit"> m²</span></p>
-        <p class="stat-label">de zona primaria aduanera</p>
-      </div>
-      <div class="stat reveal">
-        <p class="stat-value"><span data-count="24">24</span>/7</p>
-        <p class="stat-label">operación los 365 días del año</p>
-      </div>
-      <div class="stat reveal">
-        <p class="stat-value stat-text"><svg class="i"><use href="#i-landmark"/></svg> Aduana</p>
-        <p class="stat-label">con oficinas dentro del predio</p>
-      </div>
-      <div class="stat reveal">
-        <p class="stat-value stat-text"><svg class="i"><use href="#i-scale"/></svg> Balanza fiscal</p>
-        <p class="stat-label">y vigilancia permanente</p>
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios" aria-labelledby="servicios-title">
+    <div class="services-cell">
+      <h2 class="zigzag" id="servicios-title" data-reveal><span>Servicios en</span><span>zona primaria</span></h2>
+      <div class="services-foot" data-reveal>
+        <p>Recibimos, guardamos, preparamos y controlamos su mercadería dentro del predio, con oficinas de Aduana en el mismo lugar.</p>
+        <a class="btn btn-primary" href="#contacto">Consultar un servicio</a>
       </div>
     </div>
-  </section>
-
-  <!-- ============ LA EMPRESA ============ -->
-  <section class="section" id="empresa">
-    <div class="container">
-      <div class="about-grid">
-        <div class="reveal">
-          <p class="eyebrow">La empresa</p>
-          <h2>Un depósito fiscal con trato directo</h2>
-          <p>Fiscales San Martín S.A. es un depósito fiscal general ubicado en Villa Maipú, partido de General San Martín. Trabajamos con importadores, exportadores, despachantes de aduana y operadores logísticos.</p>
-          <p>La empresa se constituyó en 2022. En 2023 el proyecto obtuvo la prefactibilidad y en 2024 la Aduana habilitó el predio como Depósito Fiscal General.</p>
-          <p>Nuestra forma de trabajar es simple: trato directo, respuestas rápidas y acompañamiento en cada paso logístico y aduanero.</p>
-        </div>
-        <ol class="timeline reveal" aria-label="Historia de la empresa">
-          <li><span class="tl-year">2022</span><span class="tl-text"><strong>Constitución</strong>Se constituye Fiscales San Martín S.A.</span></li>
-          <li><span class="tl-year">2023</span><span class="tl-text"><strong>Prefactibilidad</strong>El proyecto obtiene la prefactibilidad.</span></li>
-          <li><span class="tl-year">2024</span><span class="tl-text"><strong>Habilitación</strong>Habilitación como Depósito Fiscal General, publicada en el Boletín Oficial en agosto de 2024.</span></li>
-          <li class="tl-pending"><span class="tl-year">—</span><span class="tl-text"><strong>Inicio de operaciones</strong><span class="pendiente">[PENDIENTE: año de inicio de operaciones]</span></span></li>
-        </ol>
-      </div>
-
-      <div class="cards-4">
-        <article class="card reveal">
-          <span class="card-icon"><svg class="i"><use href="#i-user-check"/></svg></span>
-          <h3>Atención personalizada</h3>
-          <p>Trato directo con quienes operan su carga.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-icon"><svg class="i"><use href="#i-briefcase"/></svg></span>
-          <h3>Asesoramiento aduanero</h3>
-          <p>Asesoramiento en procesos logísticos y aduaneros.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-icon"><svg class="i"><use href="#i-sliders"/></svg></span>
-          <h3>Flexibilidad operativa</h3>
-          <p>Nos adaptamos a lo que necesita cada operación.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-icon"><svg class="i"><use href="#i-clock"/></svg></span>
-          <h3>Disponibilidad 24 horas</h3>
-          <p>Operamos las 24 horas, los 365 días del año.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICIOS ============ -->
-  <section class="section section-alt" id="servicios">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Servicios</p>
-        <h2>Todo lo que su carga necesita en zona primaria</h2>
-      </div>
-
-      <div class="service-group">
-        <h3 class="group-title reveal">Almacenaje</h3>
-        <div class="cards-3">
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-warehouse"/></svg></span><h4>Recepción y almacenamiento</h4><p>Recibimos su mercadería y la guardamos en zona primaria aduanera.</p></article>
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-clipboard-list"/></svg></span><h4>Gestión de inventarios</h4><p>Control de stock permanente, integrado con el sistema de la Aduana.</p></article>
-        </div>
-      </div>
-
-      <div class="service-group">
-        <h3 class="group-title reveal">Manipulación de carga</h3>
-        <div class="cards-3">
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-layers"/></svg></span><h4>Consolidación y desconsolidación</h4><p>Armamos y separamos cargas según lo que necesite su operación.</p></article>
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-container"/></svg></span><h4>Operaciones LCL</h4><p>Gestión de carga consolidada de distintos clientes.</p></article>
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-package-check"/></svg></span><h4>Preparación de pallets, enfardado y filmado</h4><p>Dejamos la carga lista y protegida para su traslado.</p></article>
-        </div>
-      </div>
-
-      <div class="service-group">
-        <h3 class="group-title reveal">Control y trámites</h3>
-        <div class="cards-3">
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-search-check"/></svg></span><h4>Verificación de mercaderías</h4><p>Verificación con oficinas de Aduana dentro del predio.</p></article>
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-file-text"/></svg></span><h4>Control documental y trámites aduaneros</h4><p>Revisamos la documentación y lo acompañamos en los trámites.</p></article>
-          <article class="card reveal"><span class="card-icon"><svg class="i"><use href="#i-route"/></svg></span><h4>Seguimiento de operaciones</h4><p>Le informamos el estado de su carga en cada etapa.</p></article>
-        </div>
-      </div>
-
-      <div class="audience reveal">
-        <h3>¿Para quién trabajamos?</h3>
-        <ul class="audience-list">
-          <li><svg class="i"><use href="#i-ship"/></svg> Importadores y exportadores</li>
-          <li><svg class="i"><use href="#i-stamp"/></svg> Despachantes de aduana</li>
-          <li><svg class="i"><use href="#i-plane"/></svg> Freight forwarders (transitarios)</li>
-          <li><svg class="i"><use href="#i-truck"/></svg> Operadores logísticos</li>
+    <div class="services-rows">
+      <article class="srow" data-reveal>
+        <h3>Almacenaje</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-warehouse"/></svg><span><b>Recepción y almacenamiento.</b> Recibimos su mercadería y la guardamos en zona primaria aduanera.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-clipboard-list"/></svg><span><b>Gestión de inventarios.</b> Control de stock permanente, integrado con el sistema de la Aduana.</span></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ INSTALACIONES ============ -->
-  <section class="section" id="instalaciones">
-    <div class="container">
-      <div class="facilities-grid">
-        <div class="reveal">
-          <p class="eyebrow">Instalaciones</p>
-          <h2>Preparados para operar las 24 horas</h2>
-          <p class="lead">Un predio de unos 10.050 m² en zona primaria aduanera, preparado para operar las 24 horas.</p>
-          <dl class="pending-list">
-            <div><dt>Naves o sectores</dt><dd><span class="pendiente">[PENDIENTE: número de naves]</span></dd></div>
-            <div><dt>Equipamiento</dt><dd><span class="pendiente">[PENDIENTE: equipamiento específico]</span></dd></div>
-          </dl>
-        </div>
-        <ul class="feature-list reveal">
-          <li><span class="fl-icon"><svg class="i"><use href="#i-maximize"/></svg></span><span><strong>Unos 10.050 m²</strong> de zona primaria aduanera</span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-scale"/></svg></span><span><strong>Balanza fiscal</strong></span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-video"/></svg></span><span><strong>Videovigilancia CCTV</strong></span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-shield-check"/></svg></span><span><strong>Vigilancia permanente</strong></span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-landmark"/></svg></span><span><strong>Oficinas de Aduana</strong> dentro del predio</span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-monitor"/></svg></span><span><strong>Integración</strong> con el sistema informático aduanero</span></li>
-          <li><span class="fl-icon"><svg class="i"><use href="#i-forklift"/></svg></span><span><strong>Equipamiento</strong> para manipular mercaderías</span></li>
+      </article>
+      <article class="srow" data-reveal>
+        <h3>Manipulación de carga</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span><b>Consolidación y desconsolidación.</b> Armamos y separamos cargas según lo que necesite su operación.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-container"/></svg><span><b>Operaciones LCL.</b> Gestión de carga consolidada de distintos clientes.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-package-check"/></svg><span><b>Preparación de pallets, enfardado y filmado.</b> Dejamos la carga lista y protegida para su traslado.</span></li>
         </ul>
-      </div>
-
-      <!-- PENDIENTE: fotos reales del depósito. Reemplazar cada <figure class="photo-slot"> por:
-           <figure class="photo"><img src="img/deposito-1.jpg" alt="Descripción de la foto" loading="lazy" width="1200" height="900"></figure> -->
-      <div class="gallery" aria-label="Galería de fotos del depósito">
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-        <figure class="photo-slot reveal"><svg class="i"><use href="#i-image"/></svg><figcaption>Foto del depósito – pendiente</figcaption></figure>
-      </div>
-
-      <div class="map reveal">
-        <iframe
-          title="Mapa: E. C. Villegas 2143, Villa Maipú, General San Martín"
-          src="https://maps.google.com/maps?q=E.%20C.%20Villegas%202143%2C%20Villa%20Maip%C3%BA%2C%20General%20San%20Mart%C3%ADn%2C%20Buenos%20Aires%2C%20Argentina&z=15&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p class="map-caption"><svg class="i"><use href="#i-map-pin"/></svg> E. C. Villegas 2143, Villa Maipú, General San Martín, Buenos Aires · <a href="https://www.google.com/maps/search/?api=1&query=E.%20C.%20Villegas%202143%2C%20Villa%20Maip%C3%BA%2C%20General%20San%20Mart%C3%ADn%2C%20Buenos%20Aires" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
-      </div>
+      </article>
+      <article class="srow" data-reveal>
+        <h3>Control y trámites</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-search-check"/></svg><span><b>Verificación de mercaderías.</b> Verificación con oficinas de Aduana dentro del predio.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-file-text"/></svg><span><b>Control documental y trámites aduaneros.</b> Revisamos la documentación y lo acompañamos en los trámites.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-route"/></svg><span><b>Seguimiento de operaciones.</b> Le informamos el estado de su carga en cada etapa.</span></li>
+        </ul>
+      </article>
     </div>
   </section>
 
-  <!-- ============ CONTACTO ============ -->
-  <section class="section section-alt" id="contacto">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Contacto</p>
-        <h2>Cuéntenos qué necesita su operación</h2>
-        <p>Complete el formulario y el equipo comercial le responderá a la brevedad.</p>
-      </div>
+  <!-- PARA QUIÉN TRABAJAMOS -->
+  <section class="who" aria-labelledby="quien-title">
+    <div class="who-col">
+      <h2 id="quien-title" data-reveal>¿Para quién trabajamos?</h2>
+      <ul class="rows" data-reveal>
+        <li><svg class="i" aria-hidden="true"><use href="#i-ship"/></svg><span class="r-name">Importadores y exportadores</span><span class="r-val">Comercio exterior</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-stamp"/></svg><span class="r-name">Despachantes de aduana</span><span class="r-val">Trámites</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-plane"/></svg><span class="r-name">Freight forwarders</span><span class="r-val">Transitarios</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg><span class="r-name">Operadores logísticos</span><span class="r-val">Logística</span></li>
+      </ul>
+    </div>
+    <div class="who-col">
+      <h2 data-reveal>Cómo trabajamos</h2>
+      <ul class="rows" data-reveal>
+        <li><svg class="i" aria-hidden="true"><use href="#i-user-check"/></svg><span class="r-name">Atención personalizada</span><span class="r-val">Trato directo</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="r-name">Asesoramiento aduanero</span><span class="r-val">Logístico y aduanero</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg><span class="r-name">Flexibilidad operativa</span><span class="r-val">Según su operación</span></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span class="r-name">Disponibilidad 24 horas</span><span class="r-val">365 días</span></li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="contact-grid">
-        <form class="contact-form reveal" id="contact-form" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label for="f-nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
-              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
-              <p class="field-error" id="e-nombre"></p>
-            </div>
-            <div class="field">
-              <label for="f-empresa">Empresa</label>
-              <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
-              <p class="field-error" id="e-email"></p>
-            </div>
-            <div class="field">
-              <label for="f-telefono">Teléfono</label>
-              <input id="f-telefono" name="telefono" type="tel" autocomplete="tel">
-            </div>
+  <!-- INSTALACIONES -->
+  <section class="facilities" id="instalaciones" aria-labelledby="inst-title">
+    <div class="facilities-head">
+      <h2 id="inst-title" data-reveal>Instalaciones</h2>
+      <p data-reveal>Un predio de unos 10.050&nbsp;m² en zona primaria aduanera, preparado para operar las 24 horas.</p>
+    </div>
+    <!-- PENDIENTE: fotos reales del depósito. Reemplazar cada <figure class="tile tile-photo"> por:
+         <figure class="tile tile-img"><img src="img/deposito-1.jpg" alt="Qué se ve en la foto" loading="lazy" width="1200" height="1200"></figure> -->
+    <div class="tiles">
+      <figure class="tile t-navy" data-tile><span class="tile-big">10.050&nbsp;m²</span><figcaption>Zona primaria aduanera</figcaption></figure>
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+      <figure class="tile t-paper" data-tile><svg class="i tile-icon" aria-hidden="true"><use href="#i-scale"/></svg><figcaption>Balanza fiscal</figcaption></figure>
+      <figure class="tile t-blue" data-tile><span class="tile-big">CCTV</span><figcaption>Videovigilancia</figcaption></figure>
+
+      <figure class="tile t-paper" data-tile><span class="tile-big">24&nbsp;h</span><figcaption>Vigilancia permanente</figcaption></figure>
+      <figure class="tile t-navy" data-tile><svg class="i tile-icon" aria-hidden="true"><use href="#i-landmark"/></svg><figcaption>Oficinas de Aduana en el predio</figcaption></figure>
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+      <figure class="tile t-white" data-tile><svg class="i tile-icon" aria-hidden="true"><use href="#i-monitor"/></svg><figcaption>Integración con el sistema informático aduanero</figcaption></figure>
+
+      <figure class="tile t-blue" data-tile><svg class="i tile-icon" aria-hidden="true"><use href="#i-forklift"/></svg><figcaption>Equipamiento para manipular mercaderías</figcaption></figure>
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+      <figure class="tile t-white" data-tile><span class="tile-pend"><span class="pendiente">[PENDIENTE: número de naves]</span></span><figcaption>Naves o sectores</figcaption></figure>
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+      <figure class="tile t-paper" data-tile><span class="tile-pend"><span class="pendiente">[PENDIENTE: equipamiento específico]</span></span><figcaption>Autoelevadores, muelles y otros equipos</figcaption></figure>
+      <figure class="tile t-navy" data-tile><span class="tile-big">2143</span><figcaption>E. C. Villegas, Villa Maipú</figcaption></figure>
+      <figure class="tile tile-photo" data-tile><figcaption>Foto del depósito – pendiente</figcaption></figure>
+    </div>
+
+    <div class="map" data-reveal>
+      <iframe
+        title="Mapa: E. C. Villegas 2143, Villa Maipú, General San Martín"
+        src="https://maps.google.com/maps?q=E.%20C.%20Villegas%202143%2C%20Villa%20Maip%C3%BA%2C%20General%20San%20Mart%C3%ADn%2C%20Buenos%20Aires%2C%20Argentina&z=15&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="map-caption">E. C. Villegas 2143, Villa Maipú, General San Martín, provincia de Buenos Aires · <a class="link" href="https://www.google.com/maps/search/?api=1&query=E.%20C.%20Villegas%202143%2C%20Villa%20Maip%C3%BA%2C%20General%20San%20Mart%C3%ADn%2C%20Buenos%20Aires" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto" aria-labelledby="contacto-title">
+    <div class="contact-top">
+      <h2 id="contacto-title" data-reveal>Contacto</h2>
+      <p data-reveal>Cuéntenos qué necesita su operación y el equipo comercial le responderá a la brevedad.</p>
+    </div>
+    <!-- PENDIENTE: confirmar el email (dominio fiscalessanmartin.com vs. web fiscalsanmartin.ar). -->
+    <a class="email-display" href="mailto:comercial@fiscalessanmartin.com" data-reveal><span>comercial@</span><span>fiscalessanmartin.com</span></a>
+
+    <div class="contact-grid">
+      <form class="form" id="contact-form" novalidate data-reveal>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-nombre">Nombre <span class="req">(obligatorio)</span></label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+            <p class="field-error" id="e-nombre"></p>
           </div>
           <div class="field">
-            <label for="f-servicio">Tipo de servicio</label>
-            <select id="f-servicio" name="servicio">
-              <option value="">Seleccione una opción</option>
-              <option>Almacenamiento</option>
-              <option>Consolidación / desconsolidación</option>
-              <option>LCL</option>
-              <option>Verificación</option>
-              <option>Preparación de pallets / enfardado / filmado</option>
-              <option>Trámites aduaneros</option>
-              <option>Otro</option>
-            </select>
+            <label for="f-empresa">Empresa</label>
+            <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-email">Email <span class="req">(obligatorio)</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+            <p class="field-error" id="e-email"></p>
           </div>
           <div class="field">
-            <label for="f-mensaje">Mensaje <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="e-mensaje"></textarea>
-            <p class="field-error" id="e-mensaje"></p>
+            <label for="f-telefono">Teléfono</label>
+            <input id="f-telefono" name="telefono" type="tel" autocomplete="tel">
           </div>
-          <!-- Campo trampa contra spam: los usuarios no lo ven. -->
-          <div class="hp" aria-hidden="true"><label for="f-web">No completar</label><input id="f-web" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
-          <p class="form-note"><span class="req">*</span> Campos obligatorios</p>
-          <button class="btn btn-accent" type="submit">Enviar consulta</button>
-          <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
-        </form>
+        </div>
+        <div class="field">
+          <label for="f-servicio">Tipo de servicio</label>
+          <select id="f-servicio" name="servicio">
+            <option value="">Seleccione una opción</option>
+            <option>Almacenamiento</option>
+            <option>Consolidación / desconsolidación</option>
+            <option>LCL</option>
+            <option>Verificación</option>
+            <option>Preparación de pallets / enfardado / filmado</option>
+            <option>Trámites aduaneros</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-mensaje">Mensaje <span class="req">(obligatorio)</span></label>
+          <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="e-mensaje"></textarea>
+          <p class="field-error" id="e-mensaje"></p>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="f-web">No completar</label><input id="f-web" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn btn-accent" type="submit">Enviar consulta</button>
+        <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
+      </form>
 
-        <aside class="contact-info reveal" aria-label="Datos de contacto">
-          <h3>Datos de contacto</h3>
-          <ul>
-            <li><svg class="i"><use href="#i-map-pin"/></svg><span><strong>Dirección</strong>E. C. Villegas 2143, Villa Maipú, partido de General San Martín, provincia de Buenos Aires, Argentina</span></li>
-            <li><svg class="i"><use href="#i-phone"/></svg><span><strong>Teléfono y WhatsApp</strong><a href="tel:+541152637450">+54 11 5263-7450</a></span></li>
-            <!-- PENDIENTE: confirmar el email (dominio fiscalessanmartin.com vs. web fiscalsanmartin.ar). -->
-            <li><svg class="i"><use href="#i-mail"/></svg><span><strong>Email</strong><a href="mailto:comercial@fiscalessanmartin.com">comercial@fiscalessanmartin.com</a></span></li>
-            <li><svg class="i"><use href="#i-clock"/></svg><span><strong>Horario</strong>24 horas, 365 días al año</span></li>
-          </ul>
-          <a class="btn btn-primary btn-block" data-whatsapp href="https://wa.me/5491152637450?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20dep%C3%B3sito%20fiscal." target="_blank" rel="noopener"><svg class="i"><use href="#i-message-circle"/></svg> Escribir por WhatsApp</a>
-        </aside>
+      <div class="contact-data" data-reveal>
+        <dl>
+          <div><dt>Dirección</dt><dd>E. C. Villegas 2143, Villa Maipú, partido de General San Martín, provincia de Buenos Aires, Argentina</dd></div>
+          <div><dt>Teléfono y WhatsApp</dt><dd><a class="link" href="tel:+541152637450">+54 11 5263-7450</a></dd></div>
+          <div><dt>Email</dt><dd><a class="link" href="mailto:comercial@fiscalessanmartin.com">comercial@fiscalessanmartin.com</a></dd></div>
+          <div><dt>Horario</dt><dd>24 horas, 365 días al año</dd></div>
+        </dl>
+        <a class="btn btn-ghost" data-whatsapp href="https://wa.me/5491152637450?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20dep%C3%B3sito%20fiscal." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-message-circle"/></svg>Escribir por WhatsApp</a>
       </div>
     </div>
   </section>
 </main>
 
-<!-- ============ PIE ============ -->
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <!-- PENDIENTE: logo en alta resolución -->
-      <div class="logo-slot"><span class="pendiente">[PENDIENTE: logo en alta resolución]</span></div>
-      <p class="legal"><strong>Fiscales San Martín S.A.</strong><br>CUIT 30-71753882-6<br>Depósito Fiscal General</p>
-    </div>
-    <div>
-      <h3>Contacto</h3>
-      <ul class="footer-list">
-        <li>E. C. Villegas 2143, Villa Maipú, General San Martín, Buenos Aires</li>
-        <li><a href="tel:+541152637450">+54 11 5263-7450</a></li>
-        <li><a href="mailto:comercial@fiscalessanmartin.com">comercial@fiscalessanmartin.com</a></li>
-        <li>24 horas, 365 días al año</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Secciones</h3>
-      <ul class="footer-list">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#empresa">La empresa</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#instalaciones">Instalaciones</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3>Redes sociales</h3>
-      <p><span class="pendiente">[PENDIENTE: redes sociales oficiales]</span></p>
+<footer class="footer">
+  <p class="footer-name">Fiscales San Martín</p>
+  <div class="footer-row">
+    <ul class="places">
+      <li><a href="tel:+541152637450">+54 11 5263-7450</a></li>
+      <li><a href="mailto:comercial@fiscalessanmartin.com">comercial@<wbr>fiscalessanmartin.com</a></li>
+      <li>E. C. Villegas 2143, Villa Maipú</li>
+    </ul>
+    <div class="footer-cols">
+      <div>
+        <h2>Secciones</h2>
+        <ul>
+          <li><a class="link" href="#inicio">Inicio</a></li>
+          <li><a class="link" href="#empresa">La empresa</a></li>
+          <li><a class="link" href="#servicios">Servicios</a></li>
+          <li><a class="link" href="#instalaciones">Instalaciones</a></li>
+          <li><a class="link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Redes sociales</h2>
+        <p><span class="pendiente">[PENDIENTE: redes sociales oficiales]</span></p>
+      </div>
+      <div>
+        <h2>Logo</h2>
+        <p><span class="pendiente">[PENDIENTE: logo en alta resolución]</span></p>
+      </div>
     </div>
   </div>
-  <div class="container footer-bottom">
-    <p>© 2026 Fiscales San Martín S.A.</p>
+  <div class="footer-legal">
+    <p>© 2026 Fiscales San Martín S.A. · CUIT 30-71753882-6 · Depósito Fiscal General</p>
+    <a class="link" href="#inicio">Volver arriba</a>
   </div>
 </footer>
 
 <a class="wa-float" data-whatsapp href="https://wa.me/5491152637450?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20dep%C3%B3sito%20fiscal." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg class="i"><use href="#i-message-circle"/></svg><span>WhatsApp</span>
+  <svg class="i" aria-hidden="true"><use href="#i-message-circle"/></svg>
 </a>
 
 <script src="js/main.js"></script>

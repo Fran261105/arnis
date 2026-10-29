@@ -24,12 +24,11 @@ const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent
 document.querySelectorAll('[data-whatsapp]').forEach(a => { a.href = waUrl; });
 
 /* ---------- Menú móvil ---------- */
-const toggle = document.querySelector('.nav-toggle');
+const toggle = document.querySelector('.menu-btn');
 const nav = document.getElementById('menu-principal');
 function setMenu(open) {
   nav.classList.toggle('open', open);
   toggle.setAttribute('aria-expanded', String(open));
-  toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
 }
 toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
 nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
@@ -54,7 +53,16 @@ if ('IntersectionObserver' in window) {
   sections.forEach(s => spy.observe(s));
 }
 
-/* ---------- Aparición al hacer scroll y contadores ---------- */
+/* ---------- Reloj: la hora en Villa Maipú y el depósito operando ---------- */
+const clockText = document.getElementById('clock-text');
+const timeFmt = new Intl.DateTimeFormat('es-AR', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Argentina/Buenos_Aires' });
+function tick() {
+  clockText.innerHTML = 'Ahora son las <b>' + timeFmt.format(new Date()) + '</b> en Villa Maipú y el depósito está operando.';
+}
+tick();
+setInterval(tick, 15000);
+
+/* ---------- Entradas al hacer scroll y contadores ---------- */
 const nf = new Intl.NumberFormat('es-AR');
 function runCounter(el) {
   const target = Number(el.dataset.count);
@@ -64,27 +72,33 @@ function runCounter(el) {
   const start = performance.now();
   function step(now) {
     const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = fmt(Math.round(target * eased));
+    el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - t, 3))));
     if (t < 1) requestAnimationFrame(step);
   }
   el.textContent = fmt(0);
   requestAnimationFrame(step);
 }
 
-const revealEls = document.querySelectorAll('.reveal');
+// Escalona las entradas dentro de cada sección: título, texto, después el resto.
+document.querySelectorAll('main > section, footer').forEach(section => {
+  section.querySelectorAll('[data-reveal], [data-tile]').forEach((el, i) => {
+    el.style.setProperty('--d', Math.min(i, 8) * 80 + 'ms');
+  });
+});
+
+const revealEls = document.querySelectorAll('[data-reveal], [data-tile]');
 if ('IntersectionObserver' in window && !reduceMotion) {
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('in');
+      entry.target.classList.add('is-in');
       entry.target.querySelectorAll('[data-count]').forEach(runCounter);
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.15 });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
   revealEls.forEach(el => io.observe(el));
 } else {
-  revealEls.forEach(el => el.classList.add('in'));
+  revealEls.forEach(el => el.classList.add('is-in'));
 }
 
 /* ---------- Formulario de contacto ---------- */
