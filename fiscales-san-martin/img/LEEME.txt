@@ -1,0 +1,4 @@
+Carpeta para el logo y las fotos reales del depósito.
+- Logo: logo.svg (preferible) o logo.png en alta resolución.
+- Fotos: deposito-1.jpg ... deposito-6.jpg (unos 1600 px de ancho, comprimidas, menos de 300 KB cada una).
+Ver README.md para saber dónde colocarlas.
